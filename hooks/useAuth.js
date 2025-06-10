@@ -32,6 +32,11 @@ const login = (userData , authToken) => {
     setToken(authToken)
     localStorage.setItem('auth-token' , authToken)
 }
+    const register = (userData, authToken) => {
+        setUser(userData)
+        setToken(authToken)
+        localStorage.setItem('auth-token', authToken)
+    }
 
 const logout = (userData , authToken) => {
     setUser(null)
@@ -39,14 +44,15 @@ const logout = (userData , authToken) => {
     localStorage.removeItem('auth-token')
 }
 
-const value = {
-    user,
-    token,
-    loading,
-    login,
-    logout,
-    isAuthenticated:!!user
-}
+    const value = {
+        user,
+        token,
+        loading,
+        login,
+        logout,
+        register, // ✅ Added
+        isAuthenticated: !!user,
+    }
 
 return(
 <AuthContext.Provider value={value}>

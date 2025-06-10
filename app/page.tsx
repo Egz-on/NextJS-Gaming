@@ -1,10 +1,14 @@
-import LoginFrom from "@/components/LoginFrom";
-import Image from "next/image";
+
+import Navbar from './components/Navbar'
+import Animation from './components/Animation'
+
+
 
 export default function Home() {
   return (
-    <>
-<LoginFrom/>
-    </>
-  );
+    <div >
+      <Navbar/>
+      <Animation/>
+    </div>
+  )
 }
