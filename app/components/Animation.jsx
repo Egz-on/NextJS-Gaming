@@ -1,4 +1,5 @@
 'use client'
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
@@ -7,6 +8,7 @@ export default function GamingHomepage() {
   const sceneRef = useRef(null);
   const animationRef = useRef(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     if (!mountRef.current) return;
@@ -288,8 +290,7 @@ export default function GamingHomepage() {
   }, []);
 
   const handleEnterShop = () => {
-    // router.push('/games'); // Navigate to your games page
-    console.log('Navigate to games page');
+    router.push('/Home');
   };
 
   return (

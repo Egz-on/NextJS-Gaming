@@ -22,7 +22,6 @@ __turbopack_context__.n(__turbopack_context__.i("[project]/app/layout.tsx [app-r
 
 var { g: global, __dirname } = __turbopack_context__;
 {
-// app/components/FetchGaming.tsx (or wherever you want)
 __turbopack_context__.s({
     "default": (()=>FetchGaming)
 });
@@ -34,57 +33,100 @@ async function FetchGaming() {
         throw new Error('Failed to fetch data');
     }
     const data = await res.json();
+    console.log(data.results);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6",
+        className: "container py-20 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6",
         children: data.results.map((game)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "bg-gray-800 rounded-xl shadow-md overflow-hidden text-white",
+                className: "relative bg-gray-800 rounded-xl shadow-md overflow-hidden text-white transform transition-transform duration-300 hover:scale-105",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                         src: game.background_image,
                         alt: game.name,
-                        className: "w-full h-48 object-cover"
+                        className: "w-full h-48 "
                     }, void 0, false, {
                         fileName: "[project]/app/components/FetchGaming.tsx",
-                        lineNumber: 19,
-                        columnNumber: 13
+                        lineNumber: 18,
+                        columnNumber: 21
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "p-4",
+                        className: "absolute inset-0 bg-black bg-opacity-80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                className: "text-lg font-semibold text-orange-400",
-                                children: game.name
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(Link, {
+                                href: "/Game",
+                                className: "h-40 bg-gray-700 flex items-center justify-center rounded-lg mb-2 text-sm",
+                                children: "Learn more"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/FetchGaming.tsx",
-                                lineNumber: 25,
+                                lineNumber: 27,
                                 columnNumber: 17
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-sm text-gray-300",
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 children: [
-                                    "Released: ",
-                                    game.released
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                        className: "text-lg font-semibold text-orange-400",
+                                        children: game.name
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/components/FetchGaming.tsx",
+                                        lineNumber: 35,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-sm text-gray-300 mb-1",
+                                        children: [
+                                            "Released: ",
+                                            game.released
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/components/FetchGaming.tsx",
+                                        lineNumber: 36,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-sm text-gray-300",
+                                        children: [
+                                            "Genres: ",
+                                            game.genres?.map((g)=>g.name).join(', ')
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/components/FetchGaming.tsx",
+                                        lineNumber: 37,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        children: game.parent_platforms.map(({ platform })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "bg-gray-800 px-2 py-1 m-1 rounded",
+                                                children: platform.name
+                                            }, platform.id, false, {
+                                                fileName: "[project]/app/components/FetchGaming.tsx",
+                                                lineNumber: 42,
+                                                columnNumber: 9
+                                            }, this))
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/components/FetchGaming.tsx",
+                                        lineNumber: 40,
+                                        columnNumber: 5
+                                    }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/FetchGaming.tsx",
-                                lineNumber: 26,
-                                columnNumber: 17
+                                lineNumber: 34,
+                                columnNumber: 25
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/FetchGaming.tsx",
-                        lineNumber: 24,
-                        columnNumber: 13
+                        lineNumber: 25,
+                        columnNumber: 21
                     }, this)
                 ]
             }, game.id, true, {
                 fileName: "[project]/app/components/FetchGaming.tsx",
-                lineNumber: 15,
-                columnNumber: 13
+                lineNumber: 13,
+                columnNumber: 17
             }, this))
     }, void 0, false, {
         fileName: "[project]/app/components/FetchGaming.tsx",
-        lineNumber: 13,
+        lineNumber: 11,
         columnNumber: 9
     }, this);
 }

@@ -50,7 +50,7 @@ const logout = (userData , authToken) => {
         loading,
         login,
         logout,
-        register, // ✅ Added
+        register,
         isAuthenticated: !!user,
     }
 

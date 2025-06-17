@@ -1,10 +1,9 @@
-    import FetchGaming from "@/app/components/FetchGaming"
-import Navbar from "../components/Navbar"
+    import FetchGaming from "@/app/Home/FetchGaming"
+
 
     export default function Home() {
     return (
-        <main className="min-h-screen bg-gray-900 text-white">
-            
+        <main className="min-h-screen text-white">
         <FetchGaming />
         </main>
     )

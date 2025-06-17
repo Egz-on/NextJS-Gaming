@@ -58,7 +58,7 @@ function RegisterForm() {
                     children: "Register"
                 }, void 0, false, {
                     fileName: "[project]/app/register/RegisterForm.tsx",
-                    lineNumber: 39,
+                    lineNumber: 36,
                     columnNumber: 13
                 }, this),
                 error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -66,7 +66,7 @@ function RegisterForm() {
                     children: error
                 }, void 0, false, {
                     fileName: "[project]/app/register/RegisterForm.tsx",
-                    lineNumber: 42,
+                    lineNumber: 39,
                     columnNumber: 13
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -80,7 +80,7 @@ function RegisterForm() {
                                     children: "Username"
                                 }, void 0, false, {
                                     fileName: "[project]/app/register/RegisterForm.tsx",
-                                    lineNumber: 49,
+                                    lineNumber: 46,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -92,13 +92,13 @@ function RegisterForm() {
                                     required: true
                                 }, void 0, false, {
                                     fileName: "[project]/app/register/RegisterForm.tsx",
-                                    lineNumber: 50,
+                                    lineNumber: 47,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/register/RegisterForm.tsx",
-                            lineNumber: 48,
+                            lineNumber: 45,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -108,7 +108,7 @@ function RegisterForm() {
                                     children: "Email"
                                 }, void 0, false, {
                                     fileName: "[project]/app/register/RegisterForm.tsx",
-                                    lineNumber: 61,
+                                    lineNumber: 58,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -120,13 +120,13 @@ function RegisterForm() {
                                     required: true
                                 }, void 0, false, {
                                     fileName: "[project]/app/register/RegisterForm.tsx",
-                                    lineNumber: 62,
+                                    lineNumber: 59,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/register/RegisterForm.tsx",
-                            lineNumber: 60,
+                            lineNumber: 57,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -136,7 +136,7 @@ function RegisterForm() {
                                     children: "Password"
                                 }, void 0, false, {
                                     fileName: "[project]/app/register/RegisterForm.tsx",
-                                    lineNumber: 73,
+                                    lineNumber: 70,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -148,13 +148,13 @@ function RegisterForm() {
                                     required: true
                                 }, void 0, false, {
                                     fileName: "[project]/app/register/RegisterForm.tsx",
-                                    lineNumber: 74,
+                                    lineNumber: 71,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/register/RegisterForm.tsx",
-                            lineNumber: 72,
+                            lineNumber: 69,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -164,24 +164,24 @@ function RegisterForm() {
                             children: loading ? 'Registering...' : 'Registered'
                         }, void 0, false, {
                             fileName: "[project]/app/register/RegisterForm.tsx",
-                            lineNumber: 84,
+                            lineNumber: 81,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/register/RegisterForm.tsx",
-                    lineNumber: 47,
+                    lineNumber: 44,
                     columnNumber: 13
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/register/RegisterForm.tsx",
-            lineNumber: 38,
+            lineNumber: 35,
             columnNumber: 9
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/register/RegisterForm.tsx",
-        lineNumber: 37,
+        lineNumber: 34,
         columnNumber: 9
     }, this);
 }
