@@ -1,13 +1,14 @@
 'use client';
-import { AuthProvider } from '../hooks/useAuth';
+import { AuthProvider } from '@/hooks/useAuth';
 import './globals.css'
+import Navbar from './components/Navbar';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
-        
         <AuthProvider>
+        <Navbar />
           {children}
         </AuthProvider>
         

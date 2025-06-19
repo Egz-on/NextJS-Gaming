@@ -18,10 +18,11 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-function GameListClient({ initialNext, initialGames }) {
+function GameListClient({ initialNext, initialGames, apiKey }) {
     _s();
     const [next, setNext] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(initialNext);
     const [games, setGames] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(initialGames);
+    const [query, setQuery] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const LoadMore = async ()=>{
         if (!next) return;
         const res = await fetch(next);
@@ -32,113 +33,140 @@ function GameListClient({ initialNext, initialGames }) {
             ]);
         setNext(data.next);
     };
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$infinite$2d$scroll$2d$component$2f$dist$2f$index$2e$es$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-        dataLength: games.length,
-        next: LoadMore,
-        hasMore: !!next,
-        loader: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-            className: "text-center text-white mt-4",
-            children: "Loading more games..."
-        }, void 0, false, {
-            fileName: "[project]/app/Home/FetchGamingClient.tsx",
-            lineNumber: 32,
-            columnNumber: 17
-        }, void 0),
-        endMessage: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-            className: "text-center text-white mt-4",
-            children: "🎮 No more games to show"
-        }, void 0, false, {
-            fileName: "[project]/app/Home/FetchGamingClient.tsx",
-            lineNumber: 33,
-            columnNumber: 21
-        }, void 0),
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "container py-20 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6",
-            children: games.map((game)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "relative bg-gray-800 rounded-xl shadow-md overflow-hidden text-white transform transition-transform duration-300 hover:scale-105",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                            src: game.background_image,
-                            alt: game.name,
-                            className: "w-full h-48"
-                        }, void 0, false, {
-                            fileName: "[project]/app/Home/FetchGamingClient.tsx",
-                            lineNumber: 41,
-                            columnNumber: 17
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "absolute inset-0 bg-black bg-opacity-80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4",
+    const handleSearch = async (e)=>{
+        const q = e.target.value;
+        setQuery(q);
+        if (e.keyCode === 13 && q.trim() !== "") {
+            const encoded = encodeURIComponent(q.trim());
+            const response = await fetch(`https://api.rawg.io/api/games?search=${encoded}&key=${apiKey}`);
+            const data1 = await response.json();
+            setGames(data1.results);
+            setNext(data1.next);
+        }
+    };
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                type: "text",
+                placeholder: "Search games...",
+                value: query,
+                onChange: (e)=>setQuery(e.target.value),
+                onKeyUp: handleSearch,
+                className: "text-black p-2 rounded mb-6 w-full max-w-md mx-auto block"
+            }, void 0, false, {
+                fileName: "[project]/app/Home/FetchGamingClient.tsx",
+                lineNumber: 51,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$infinite$2d$scroll$2d$component$2f$dist$2f$index$2e$es$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                dataLength: games.length,
+                next: LoadMore,
+                hasMore: !!next,
+                loader: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    className: "text-center text-white mt-4",
+                    children: "Loading more games..."
+                }, void 0, false, {
+                    fileName: "[project]/app/Home/FetchGamingClient.tsx",
+                    lineNumber: 63,
+                    columnNumber: 17
+                }, void 0),
+                endMessage: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    className: "text-center text-white mt-4",
+                    children: "🎮 No more games to show"
+                }, void 0, false, {
+                    fileName: "[project]/app/Home/FetchGamingClient.tsx",
+                    lineNumber: 64,
+                    columnNumber: 21
+                }, void 0),
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "container py-20 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6",
+                    children: games.map((game)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "relative bg-gray-800 rounded-xl shadow-md overflow-hidden text-white transform transition-transform duration-300 hover:scale-105",
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                    href: `/game/${game.id}`,
-                                    className: "h-40 bg-gray-700 flex items-center justify-center rounded-lg mb-2 text-sm",
-                                    children: "Learn more"
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                    src: game.background_image,
+                                    alt: game.name,
+                                    className: "w-full h-48"
                                 }, void 0, false, {
                                     fileName: "[project]/app/Home/FetchGamingClient.tsx",
-                                    lineNumber: 48,
+                                    lineNumber: 72,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "absolute inset-0 bg-black bg-opacity-80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4",
                                     children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                            className: "text-lg font-semibold text-orange-400",
-                                            children: game.name
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                            href: `/game/${game.id}`,
+                                            className: "h-40 bg-gray-700 flex items-center justify-center rounded-lg mb-2 text-sm",
+                                            children: "Learn more"
                                         }, void 0, false, {
                                             fileName: "[project]/app/Home/FetchGamingClient.tsx",
-                                            lineNumber: 56,
-                                            columnNumber: 21
+                                            lineNumber: 79,
+                                            columnNumber: 17
                                         }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "text-sm text-gray-300",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             children: [
-                                                "Genres: ",
-                                                game.genres?.map((g)=>g.name).join(', ')
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                    className: "text-lg font-semibold text-orange-400",
+                                                    children: game.name
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/Home/FetchGamingClient.tsx",
+                                                    lineNumber: 87,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-sm text-gray-300",
+                                                    children: [
+                                                        "Genres: ",
+                                                        game.genres?.map((g)=>g.name).join(', ')
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/app/Home/FetchGamingClient.tsx",
+                                                    lineNumber: 88,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    children: [
+                                                        "Platforms: ",
+                                                        game.parent_platforms?.map(({ platform })=>platform.name).join(", ")
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/app/Home/FetchGamingClient.tsx",
+                                                    lineNumber: 91,
+                                                    columnNumber: 21
+                                                }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/Home/FetchGamingClient.tsx",
-                                            lineNumber: 57,
-                                            columnNumber: 21
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            children: [
-                                                "Platforms: ",
-                                                game.parent_platforms?.map(({ platform })=>platform.name).join(", ")
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/app/Home/FetchGamingClient.tsx",
-                                            lineNumber: 60,
-                                            columnNumber: 21
+                                            lineNumber: 86,
+                                            columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/Home/FetchGamingClient.tsx",
-                                    lineNumber: 55,
+                                    lineNumber: 78,
                                     columnNumber: 17
                                 }, this)
                             ]
-                        }, void 0, true, {
+                        }, game.id, true, {
                             fileName: "[project]/app/Home/FetchGamingClient.tsx",
-                            lineNumber: 47,
-                            columnNumber: 17
-                        }, this)
-                    ]
-                }, game.id, true, {
+                            lineNumber: 68,
+                            columnNumber: 13
+                        }, this))
+                }, void 0, false, {
                     fileName: "[project]/app/Home/FetchGamingClient.tsx",
-                    lineNumber: 37,
-                    columnNumber: 13
-                }, this))
-        }, void 0, false, {
-            fileName: "[project]/app/Home/FetchGamingClient.tsx",
-            lineNumber: 35,
-            columnNumber: 9
-        }, this)
-    }, void 0, false, {
-        fileName: "[project]/app/Home/FetchGamingClient.tsx",
-        lineNumber: 28,
-        columnNumber: 9
-    }, this);
+                    lineNumber: 66,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/app/Home/FetchGamingClient.tsx",
+                lineNumber: 59,
+                columnNumber: 9
+            }, this)
+        ]
+    }, void 0, true);
 }
-_s(GameListClient, "S8cN+sVd98h6OVRmiNzETQUSODU=");
+_s(GameListClient, "Nso+RB6aZg0MoJ/RE1AB6ntnfHo=");
 _c = GameListClient;
 var _c;
 __turbopack_context__.k.register(_c, "GameListClient");

@@ -16,7 +16,7 @@ function ScreenshotSlider ({screenshots} :{screenshots : Screenshots[]} ) {
 
   
   return (
-<div className='container mx-auto '>
+<div className='container mx-auto py-10'>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

@@ -30,11 +30,9 @@ function HorizontalScroll({ gameId, apiKey }) {
                         const data = await res.json();
                         const tags = data.tags || [];
                         setAllTags(tags);
-                        setVisible(tags.slice(0, 10)) // Load more initially for better scrolling
-                        ;
+                        setVisible(tags.slice(0, 10));
                     } catch (error) {
                         console.log('Failed to fetch tags:', error);
-                        // Fallback data for testing
                         const fallbackTags = [
                             {
                                 id: 1,
@@ -80,21 +78,18 @@ function HorizontalScroll({ gameId, apiKey }) {
         gameId,
         apiKey
     ]);
-    // Auto-scroll with requestAnimationFrame for smooth movement
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "HorizontalScroll.useEffect": ()=>{
             const container = scrollContainerRef.current;
             if (!container || !isAutoScrolling || visible.length === 0) return;
             let startTime = null;
-            const scrollSpeed = 30 // pixels per second
-            ;
+            const scrollSpeed = 30;
             const animate = {
                 "HorizontalScroll.useEffect.animate": (currentTime)=>{
                     if (!startTime) startTime = currentTime;
                     const elapsed = currentTime - startTime;
                     if (elapsed > 16) {
                         container.scrollLeft += scrollSpeed / 60;
-                        // Reset scroll position when we reach the middle (seamless loop)
                         const maxScroll = container.scrollWidth / 2;
                         if (container.scrollLeft >= maxScroll) {
                             container.scrollLeft = 0;
@@ -258,7 +253,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$mo
 ;
 function ScreenshotSlider({ screenshots }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "container mx-auto ",
+        className: "container mx-auto py-10",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Swiper"], {
             spaceBetween: 30,
             centeredSlides: true,

@@ -2,16 +2,23 @@
 import GameListClient from "./FetchGamingClient";
 
 
-export default async function FetchGaming() {
-    const res = await fetch(`https://api.rawg.io/api/games?page=1&page_size=21&key=${process.env.RAWG_API_KEY}`);
-    
-    if (!res.ok) {
-        throw new Error('Failed to fetch data');
-    }
+export default async function FetchGaming() 
+    {
+    const rawgKey = process.env.RAWG_API_KEY
+    const res  =  await fetch(`https://api.rawg.io/api/games?page=1&page_size=21&key=${process.env.RAWG_API_KEY}`)
 
+    
+if(!res.ok) {
+    throw new Error ('Error')
+}
+    
     const data = await res.json();
+    console.log(data)
     
     return(
-        <GameListClient initialNext={data.next} initialGames={data.results}/>
+
+        <GameListClient initialNext={data.next} initialGames={data.results} apiKey={rawgKey} />
+        
     )
 }
+    

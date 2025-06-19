@@ -68,17 +68,20 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$Home$2f$FetchGamingCl
 ;
 ;
 async function FetchGaming() {
+    const rawgKey = process.env.RAWG_API_KEY;
     const res = await fetch(`https://api.rawg.io/api/games?page=1&page_size=21&key=${process.env.RAWG_API_KEY}`);
     if (!res.ok) {
-        throw new Error('Failed to fetch data');
+        throw new Error('Error');
     }
     const data = await res.json();
+    console.log(data);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$Home$2f$FetchGamingClient$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
         initialNext: data.next,
-        initialGames: data.results
+        initialGames: data.results,
+        apiKey: rawgKey
     }, void 0, false, {
         fileName: "[project]/app/Home/FetchGaming.tsx",
-        lineNumber: 15,
+        lineNumber: 20,
         columnNumber: 9
     }, this);
 }
@@ -97,15 +100,15 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$Home$2f$FetchGaming$2
 ;
 function Home() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
-        className: "min-h-screen text-white",
+        className: "min-h-screen  text-white bg-[#0a0a0a]",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$Home$2f$FetchGaming$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
             fileName: "[project]/app/Home/page.tsx",
-            lineNumber: 7,
+            lineNumber: 6,
             columnNumber: 9
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/Home/page.tsx",
-        lineNumber: 6,
+        lineNumber: 5,
         columnNumber: 9
     }, this);
 }

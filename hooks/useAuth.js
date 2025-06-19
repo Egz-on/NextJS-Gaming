@@ -1,48 +1,49 @@
-'user client';
-import { createContext } from "react";
-import { verifyToken } from "../lib/api";
-import { use, useContext, useEffect, useState } from "react";
-import { useFormState } from "react-dom";
-
+'use client';
+import { createContext, useContext, useEffect, useState } from "react";
+import { AuthService } from "../lib/auth";
 
 const AuthContext = createContext();
 
-export function AuthProvider({children}) {
+export function AuthProvider({ children }) {
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [token, setToken] = useState(null);
 
-    const [user , setUser] = useState(null)
-    const [loading , setLoading] = useState(true)
-    const [token , setToken] = useState(null)
+    useEffect(() => {
+        try {
+            const savedToken = AuthService.getToken();
+            if (savedToken && AuthService.isAuthenticated()) {
+                const userData = AuthService.getCurrentUser();
+                setToken(savedToken);
+                setUser(userData);
+            } else {
+                AuthService.removeToken(); // Clean up expired token
+            }
+        } catch (error) {
+            console.error('Auth initialization error:', error);
+            AuthService.removeToken();
+        } finally {
+            setLoading(false);
+        }
+    }, []);
 
-useEffect(() => {
-    const savedToken = localStorage.getItem('auth-token')
-    if(savedToken) {
-        verifyToken(savedToken)
-        .then((data)=> {
-            setToken(savedToken);
-            setUser(data.user)
-        })
-        .catch(()=> localStorage.removeItem('auth-token'))
-        .finally(setLoading(false))
-    } else {setLoading(false)}
-},[])
+    const login = (userData, authToken) => {
+        setUser(userData);
+        setToken(authToken);
+        AuthService.setToken(authToken);
+    };
 
-const login = (userData , authToken) => {
-
-    setUser(userData)
-    setToken(authToken)
-    localStorage.setItem('auth-token' , authToken)
-}
     const register = (userData, authToken) => {
-        setUser(userData)
-        setToken(authToken)
-        localStorage.setItem('auth-token', authToken)
-    }
+        setUser(userData);
+        setToken(authToken);
+        AuthService.setToken(authToken);
+    };
 
-const logout = (userData , authToken) => {
-    setUser(null)
-    setToken(null)
-    localStorage.removeItem('auth-token')
-}
+    const logout = () => {
+        setUser(null);
+        setToken(null);
+        AuthService.removeToken();
+    };
 
     const value = {
         user,
@@ -51,21 +52,22 @@ const logout = (userData , authToken) => {
         login,
         logout,
         register,
-        isAuthenticated: !!user,
-    }
+        isAuthenticated: !!user && AuthService.isAuthenticated(),
+    };
 
-return(
-<AuthContext.Provider value={value}>
-    {children}
-</AuthContext.Provider>
-);
+    return (
+        <AuthContext.Provider value={value}>
+            {children}
+        </AuthContext.Provider>
+    );
 }
 
-export function useAuth() {
+
+export  function useAuth() {
     const context = useContext(AuthContext);
 
-    if(!context) {
-        throw new error('useAuth must be used within an AuthProvider ')
+    if (!context) {
+        throw new Error('useAuth must be used within an AuthProvider');
     }
     return context;
-}2
+}
