@@ -10,234 +10,60 @@ __turbopack_context__.s({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$hooks$2f$useAuth$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/hooks/useAuth.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
-'use client';
+"use client";
+;
 ;
 ;
 const Navbar = ()=>{
     _s();
-    const [user, setUser] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const { user, logout } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$hooks$2f$useAuth$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"])();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "Navbar.useEffect": ()=>{
-            const fetchuser = {
-                "Navbar.useEffect.fetchuser": async ()=>{
-                    const res = await fetch('/api/auth/login');
-                    const data = await res.json();
-                    setUser(data.user);
+            const checkAuth = {
+                "Navbar.useEffect.checkAuth": async ()=>{
+                    const token = localStorage.getItem("auth-token");
+                    if (!token) {
+                        user(null);
+                        return;
+                    }
+                    try {
+                        const res = await fetch("/api/auth/verify", {
+                            method: "GET",
+                            headers: {
+                                Authorization: `Bearer ${token}`,
+                                "Content-Type": "application/json"
+                            }
+                        });
+                        if (res.ok) {
+                            const data = await res.json();
+                            user(data.user);
+                        } else {
+                            localStorage.removeItem("auth-token");
+                            user(null);
+                        }
+                    } catch (error) {
+                        localStorage.removeItem("auth-token");
+                        user(null);
+                    }
                 }
-            }["Navbar.useEffect.fetchuser"];
-            fetchuser();
+            }["Navbar.useEffect.checkAuth"];
+            checkAuth();
         }
     }["Navbar.useEffect"], []);
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-        className: "fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-purple-500/20",
-        children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "flex justify-between items-center h-16",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex-shrink-0 group",
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                className: "h-10 w-auto transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-lg group-hover:brightness-110",
-                                src: "https://cdn.logojoy.com/wp-content/uploads/2018/05/01112536/5_big12.png",
-                                alt: "Logo"
-                            }, void 0, false, {
-                                fileName: "[project]/app/components/Navbar.tsx",
-                                lineNumber: 27,
-                                columnNumber: 21
-                            }, this)
-                        }, void 0, false, {
-                            fileName: "[project]/app/components/Navbar.tsx",
-                            lineNumber: 26,
-                            columnNumber: 17
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex items-center space-x-4",
-                            children: [
-                                !user && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                            href: "/login",
-                                            className: "group relative px-6 py-2 text-white font-medium transition-all duration-300 hover:scale-105 hover:-translate-y-0.5",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "relative z-10 group-hover:text-purple-300 transition-colors duration-300",
-                                                    children: "Login"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/components/Navbar.tsx",
-                                                    lineNumber: 41,
-                                                    columnNumber: 13
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/components/Navbar.tsx",
-                                                    lineNumber: 44,
-                                                    columnNumber: 13
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "absolute inset-0 border border-purple-500/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/components/Navbar.tsx",
-                                                    lineNumber: 45,
-                                                    columnNumber: 13
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/app/components/Navbar.tsx",
-                                            lineNumber: 40,
-                                            columnNumber: 9
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                            href: "/register",
-                                            className: "group relative px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium rounded-lg transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-purple-500/25 active:scale-95",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "relative z-10 group-hover:scale-105 transition-transform duration-300",
-                                                    children: "Register"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/components/Navbar.tsx",
-                                                    lineNumber: 49,
-                                                    columnNumber: 13
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/components/Navbar.tsx",
-                                                    lineNumber: 52,
-                                                    columnNumber: 13
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg opacity-0 group-hover:opacity-30 group-hover:scale-125 transition-all duration-500"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/components/Navbar.tsx",
-                                                    lineNumber: 53,
-                                                    columnNumber: 13
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/app/components/Navbar.tsx",
-                                            lineNumber: 48,
-                                            columnNumber: 9
-                                        }, this)
-                                    ]
-                                }, void 0, true),
-                                user && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            onClick: async ()=>{
-                                                await fetch('/api/auth/logout', {
-                                                    method: 'POST'
-                                                });
-                                                location.reload();
-                                            },
-                                            className: "group relative px-6 py-2 bg-gradient-to-r from-red-600 to-pink-600 text-white font-medium rounded-lg transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-red-500/25 active:scale-95",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "relative z-10 group-hover:scale-105 transition-transform duration-300",
-                                                    children: "Logout"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/components/Navbar.tsx",
-                                                    lineNumber: 67,
-                                                    columnNumber: 13
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "absolute inset-0 bg-gradient-to-r from-pink-600 to-red-600 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/components/Navbar.tsx",
-                                                    lineNumber: 70,
-                                                    columnNumber: 13
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/app/components/Navbar.tsx",
-                                            lineNumber: 60,
-                                            columnNumber: 9
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            className: "group p-2 text-white hover:text-purple-300 transition-all duration-300 hover:scale-110 hover:-translate-y-0.5",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                                className: "w-6 h-6 group-hover:rotate-12 transition-transform duration-300",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                viewBox: "0 0 24 24",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                                    strokeLinecap: "round",
-                                                    strokeLinejoin: "round",
-                                                    strokeWidth: 2,
-                                                    d: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/components/Navbar.tsx",
-                                                    lineNumber: 76,
-                                                    columnNumber: 13
-                                                }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/components/Navbar.tsx",
-                                                lineNumber: 75,
-                                                columnNumber: 13
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/components/Navbar.tsx",
-                                            lineNumber: 74,
-                                            columnNumber: 9
-                                        }, this)
-                                    ]
-                                }, void 0, true)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/app/components/Navbar.tsx",
-                            lineNumber: 37,
-                            columnNumber: 5
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/app/components/Navbar.tsx",
-                    lineNumber: 24,
-                    columnNumber: 17
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/app/components/Navbar.tsx",
-                lineNumber: 23,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-50"
-            }, void 0, false, {
-                fileName: "[project]/app/components/Navbar.tsx",
-                lineNumber: 87,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute top-0 left-4 w-2 h-2 bg-green-400 rounded-full animate-pulse"
-            }, void 0, false, {
-                fileName: "[project]/app/components/Navbar.tsx",
-                lineNumber: 90,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute top-0 right-4 w-2 h-2 bg-red-400 rounded-full animate-pulse",
-                style: {
-                    animationDelay: '0.5s'
-                }
-            }, void 0, false, {
-                fileName: "[project]/app/components/Navbar.tsx",
-                lineNumber: 91,
-                columnNumber: 13
-            }, this)
-        ]
-    }, void 0, true, {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {}, void 0, false, {
         fileName: "[project]/app/components/Navbar.tsx",
-        lineNumber: 22,
-        columnNumber: 13
+        lineNumber: 44,
+        columnNumber: 5
     }, this);
 };
-_s(Navbar, "Qh0Myb/JiI8HbpKA9kwbmYMs8u4=", false, function() {
+_s(Navbar, "Dcvyt8b0kR24Dd4mVNp0mesHELI=", false, function() {
     return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$hooks$2f$useAuth$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
     ];
 });
@@ -259,6 +85,7 @@ __turbopack_context__.s({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-jsx/style.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$three$2f$build$2f$three$2e$core$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/three/build/three.core.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$three$2f$build$2f$three$2e$module$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/three/build/three.module.js [app-client] (ecmascript) <locals>");
@@ -268,12 +95,14 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+;
 function GamingHomepage() {
     _s();
     const mountRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const sceneRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const animationRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const [isLoaded, setIsLoaded] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "GamingHomepage.useEffect": ()=>{
             if (!mountRef.current) return;
@@ -526,8 +355,7 @@ function GamingHomepage() {
         }
     }["GamingHomepage.useEffect"], []);
     const handleEnterShop = ()=>{
-        // router.push('/games'); // Navigate to your games page
-        console.log('Navigate to games page');
+        router.push('/Home');
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "jsx-150d4a4bc45c3400" + " " + "fixed inset-0 w-screen h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900",
@@ -537,7 +365,7 @@ function GamingHomepage() {
                 className: "jsx-150d4a4bc45c3400" + " " + "absolute inset-0"
             }, void 0, false, {
                 fileName: "[project]/app/components/Animation.jsx",
-                lineNumber: 298,
+                lineNumber: 299,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -550,7 +378,7 @@ function GamingHomepage() {
                             children: "GAME ZONE"
                         }, void 0, false, {
                             fileName: "[project]/app/components/Animation.jsx",
-                            lineNumber: 304,
+                            lineNumber: 305,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -558,7 +386,7 @@ function GamingHomepage() {
                             children: "Ultimate Gaming Experience Awaits"
                         }, void 0, false, {
                             fileName: "[project]/app/components/Animation.jsx",
-                            lineNumber: 309,
+                            lineNumber: 310,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -572,32 +400,32 @@ function GamingHomepage() {
                                         children: "Enter Game Store"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/Animation.jsx",
-                                        lineNumber: 319,
+                                        lineNumber: 320,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "jsx-150d4a4bc45c3400" + " " + "absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 blur-sm group-hover:blur-none"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/Animation.jsx",
-                                        lineNumber: 322,
+                                        lineNumber: 323,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "jsx-150d4a4bc45c3400" + " " + "absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full opacity-0 group-hover:opacity-20 group-hover:scale-150 transition-all duration-1000"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/Animation.jsx",
-                                        lineNumber: 325,
+                                        lineNumber: 326,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/Animation.jsx",
-                                lineNumber: 315,
+                                lineNumber: 316,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/components/Animation.jsx",
-                            lineNumber: 314,
+                            lineNumber: 315,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -611,7 +439,7 @@ function GamingHomepage() {
                                             children: "1000+"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 332,
+                                            lineNumber: 333,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -619,13 +447,13 @@ function GamingHomepage() {
                                             children: "Games"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 335,
+                                            lineNumber: 336,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/components/Animation.jsx",
-                                    lineNumber: 331,
+                                    lineNumber: 332,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -636,7 +464,7 @@ function GamingHomepage() {
                                             children: "50K+"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 338,
+                                            lineNumber: 339,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -644,13 +472,13 @@ function GamingHomepage() {
                                             children: "Players"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 341,
+                                            lineNumber: 342,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/components/Animation.jsx",
-                                    lineNumber: 337,
+                                    lineNumber: 338,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -661,7 +489,7 @@ function GamingHomepage() {
                                             children: "24/7"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 344,
+                                            lineNumber: 345,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -669,19 +497,19 @@ function GamingHomepage() {
                                             children: "Support"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 347,
+                                            lineNumber: 348,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/components/Animation.jsx",
-                                    lineNumber: 343,
+                                    lineNumber: 344,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/components/Animation.jsx",
-                            lineNumber: 330,
+                            lineNumber: 331,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -695,7 +523,7 @@ function GamingHomepage() {
                                             children: "🎮"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 354,
+                                            lineNumber: 355,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -703,7 +531,7 @@ function GamingHomepage() {
                                             children: "Latest Games"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 355,
+                                            lineNumber: 356,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -711,13 +539,13 @@ function GamingHomepage() {
                                             children: "Discover new releases"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 356,
+                                            lineNumber: 357,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/components/Animation.jsx",
-                                    lineNumber: 353,
+                                    lineNumber: 354,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -728,7 +556,7 @@ function GamingHomepage() {
                                             children: "🏆"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 360,
+                                            lineNumber: 361,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -736,7 +564,7 @@ function GamingHomepage() {
                                             children: "Tournaments"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 361,
+                                            lineNumber: 362,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -744,13 +572,13 @@ function GamingHomepage() {
                                             children: "Compete and win"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 362,
+                                            lineNumber: 363,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/components/Animation.jsx",
-                                    lineNumber: 359,
+                                    lineNumber: 360,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -761,7 +589,7 @@ function GamingHomepage() {
                                             children: "👥"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 366,
+                                            lineNumber: 367,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -769,7 +597,7 @@ function GamingHomepage() {
                                             children: "Community"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 367,
+                                            lineNumber: 368,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -777,30 +605,30 @@ function GamingHomepage() {
                                             children: "Join fellow gamers"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 368,
+                                            lineNumber: 369,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/components/Animation.jsx",
-                                    lineNumber: 365,
+                                    lineNumber: 366,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/components/Animation.jsx",
-                            lineNumber: 352,
+                            lineNumber: 353,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/components/Animation.jsx",
-                    lineNumber: 302,
+                    lineNumber: 303,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/components/Animation.jsx",
-                lineNumber: 301,
+                lineNumber: 302,
                 columnNumber: 7
             }, this),
             !isLoaded && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -810,12 +638,12 @@ function GamingHomepage() {
                     children: "Loading 3D Experience..."
                 }, void 0, false, {
                     fileName: "[project]/app/components/Animation.jsx",
-                    lineNumber: 377,
+                    lineNumber: 378,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/components/Animation.jsx",
-                lineNumber: 376,
+                lineNumber: 377,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -825,11 +653,15 @@ function GamingHomepage() {
         ]
     }, void 0, true, {
         fileName: "[project]/app/components/Animation.jsx",
-        lineNumber: 296,
+        lineNumber: 297,
         columnNumber: 5
     }, this);
 }
-_s(GamingHomepage, "cnQrWJuicErpLteyh7sovl04yoI=");
+_s(GamingHomepage, "fyGITl/bN8YWXfXvjWTA/KjJap0=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
+    ];
+});
 _c = GamingHomepage;
 var _c;
 __turbopack_context__.k.register(_c, "GamingHomepage");

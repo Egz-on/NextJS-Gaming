@@ -34,10 +34,10 @@ __turbopack_context__.s({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-jsx/style.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$three$2f$build$2f$three$2e$core$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/three/build/three.core.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$three$2f$build$2f$three$2e$module$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/three/build/three.module.js [app-ssr] (ecmascript) <locals>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-ssr] (ecmascript)");
 'use client';
 ;
 ;
@@ -48,8 +48,8 @@ function GamingHomepage() {
     const mountRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const sceneRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const animationRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const [isLoaded, setIsLoaded] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         if (!mountRef.current) return;
         // Scene setup
@@ -290,187 +290,306 @@ function GamingHomepage() {
         };
     }, []);
     const handleEnterShop = ()=>{
-        router.push('/games'); // Navigate to your games page
+        router.push('/Home');
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "jsx-527abe497075a7be" + " " + "relative w-full h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900",
+        className: "jsx-150d4a4bc45c3400" + " " + "fixed inset-0 w-screen h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 ref: mountRef,
-                className: "jsx-527abe497075a7be" + " " + "absolute inset-0"
+                className: "jsx-150d4a4bc45c3400" + " " + "absolute inset-0"
             }, void 0, false, {
                 fileName: "[project]/app/components/Animation.jsx",
                 lineNumber: 299,
-                columnNumber: 9
+                columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "jsx-527abe497075a7be" + " " + "absolute inset-0 flex items-center justify-center z-10 pointer-events-none",
+                className: "jsx-150d4a4bc45c3400" + " " + "absolute inset-0 flex items-center justify-center z-10",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "jsx-527abe497075a7be" + " " + "text-center space-y-8 pointer-events-auto",
+                    className: "jsx-150d4a4bc45c3400" + " " + "max-w-4xl mx-auto px-4 text-center space-y-8",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                            className: "jsx-527abe497075a7be" + " " + `text-6xl md:text-8xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 via-blue-500 to-green-500 bg-clip-text text-transparent bg-size-200 animate-gradient transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`,
+                            className: "jsx-150d4a4bc45c3400" + " " + `text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 via-blue-500 to-green-500 bg-clip-text text-transparent bg-size-200 animate-gradient transition-all duration-1000 hover:scale-105 hover:drop-shadow-2xl cursor-default ${isLoaded ? 'opacity-100' : 'opacity-0'}`,
                             children: "GAME ZONE"
                         }, void 0, false, {
                             fileName: "[project]/app/components/Animation.jsx",
                             lineNumber: 305,
-                            columnNumber: 13
+                            columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "jsx-527abe497075a7be" + " " + `text-xl md:text-2xl text-white/80 font-light transition-opacity duration-1000 delay-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`,
+                            className: "jsx-150d4a4bc45c3400" + " " + `text-lg md:text-xl lg:text-2xl text-white/80 font-light transition-all duration-1000 delay-500 hover:text-white hover:scale-105 cursor-default ${isLoaded ? 'opacity-100' : 'opacity-0'}`,
                             children: "Ultimate Gaming Experience Awaits"
                         }, void 0, false, {
                             fileName: "[project]/app/components/Animation.jsx",
                             lineNumber: 310,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                            onClick: handleEnterShop,
-                            style: {
-                                transitionDelay: '1s'
-                            },
-                            className: "jsx-527abe497075a7be" + " " + `group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-white font-semibold text-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/50 active:scale-95 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`,
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    className: "jsx-527abe497075a7be" + " " + "relative z-10",
-                                    children: "Enter Game Store"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/components/Animation.jsx",
-                                    lineNumber: 320,
-                                    columnNumber: 17
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "jsx-527abe497075a7be" + " " + "absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/components/Animation.jsx",
-                                    lineNumber: 321,
-                                    columnNumber: 17
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/app/components/Animation.jsx",
-                            lineNumber: 315,
-                            columnNumber: 13
+                            columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "jsx-527abe497075a7be" + " " + `flex space-x-8 text-center text-white/60 transition-opacity duration-1000 delay-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`,
+                            className: "jsx-150d4a4bc45c3400" + " " + `transition-all duration-1000 delay-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`,
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: handleEnterShop,
+                                className: "jsx-150d4a4bc45c3400" + " " + "group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-white font-semibold text-lg transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/50 active:scale-95 hover:rotate-1 hover:-translate-y-2",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "jsx-150d4a4bc45c3400" + " " + "relative z-10 transition-all duration-300 group-hover:scale-105",
+                                        children: "Enter Game Store"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/components/Animation.jsx",
+                                        lineNumber: 320,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "jsx-150d4a4bc45c3400" + " " + "absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 blur-sm group-hover:blur-none"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/components/Animation.jsx",
+                                        lineNumber: 323,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "jsx-150d4a4bc45c3400" + " " + "absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full opacity-0 group-hover:opacity-20 group-hover:scale-150 transition-all duration-1000"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/components/Animation.jsx",
+                                        lineNumber: 326,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/components/Animation.jsx",
+                                lineNumber: 316,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/app/components/Animation.jsx",
+                            lineNumber: 315,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "jsx-150d4a4bc45c3400" + " " + `flex flex-wrap justify-center gap-8 text-center text-white/60 transition-opacity duration-1000 delay-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`,
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "jsx-527abe497075a7be",
+                                    className: "jsx-150d4a4bc45c3400" + " " + "group cursor-default transition-all duration-300 hover:scale-110 hover:-translate-y-2",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "jsx-527abe497075a7be" + " " + "text-2xl font-bold text-green-400",
+                                            className: "jsx-150d4a4bc45c3400" + " " + "text-2xl font-bold text-green-400 group-hover:text-green-300 group-hover:scale-125 transition-all duration-300 group-hover:drop-shadow-lg",
                                             children: "1000+"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 327,
-                                            columnNumber: 17
+                                            lineNumber: 333,
+                                            columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "jsx-527abe497075a7be" + " " + "text-sm",
+                                            className: "jsx-150d4a4bc45c3400" + " " + "text-sm group-hover:text-white transition-colors duration-300",
                                             children: "Games"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 328,
-                                            columnNumber: 17
+                                            lineNumber: 336,
+                                            columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/components/Animation.jsx",
-                                    lineNumber: 326,
-                                    columnNumber: 17
+                                    lineNumber: 332,
+                                    columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "jsx-527abe497075a7be",
+                                    className: "jsx-150d4a4bc45c3400" + " " + "group cursor-default transition-all duration-300 hover:scale-110 hover:-translate-y-2",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "jsx-527abe497075a7be" + " " + "text-2xl font-bold text-blue-400",
+                                            className: "jsx-150d4a4bc45c3400" + " " + "text-2xl font-bold text-blue-400 group-hover:text-blue-300 group-hover:scale-125 transition-all duration-300 group-hover:drop-shadow-lg",
                                             children: "50K+"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 331,
-                                            columnNumber: 17
+                                            lineNumber: 339,
+                                            columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "jsx-527abe497075a7be" + " " + "text-sm",
+                                            className: "jsx-150d4a4bc45c3400" + " " + "text-sm group-hover:text-white transition-colors duration-300",
                                             children: "Players"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 332,
-                                            columnNumber: 17
+                                            lineNumber: 342,
+                                            columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/components/Animation.jsx",
-                                    lineNumber: 330,
-                                    columnNumber: 17
+                                    lineNumber: 338,
+                                    columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "jsx-527abe497075a7be",
+                                    className: "jsx-150d4a4bc45c3400" + " " + "group cursor-default transition-all duration-300 hover:scale-110 hover:-translate-y-2",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "jsx-527abe497075a7be" + " " + "text-2xl font-bold text-purple-400",
+                                            className: "jsx-150d4a4bc45c3400" + " " + "text-2xl font-bold text-purple-400 group-hover:text-purple-300 group-hover:scale-125 transition-all duration-300 group-hover:drop-shadow-lg",
                                             children: "24/7"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 335,
-                                            columnNumber: 17
+                                            lineNumber: 345,
+                                            columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "jsx-527abe497075a7be" + " " + "text-sm",
+                                            className: "jsx-150d4a4bc45c3400" + " " + "text-sm group-hover:text-white transition-colors duration-300",
                                             children: "Support"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/Animation.jsx",
-                                            lineNumber: 336,
-                                            columnNumber: 17
+                                            lineNumber: 348,
+                                            columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/components/Animation.jsx",
-                                    lineNumber: 334,
-                                    columnNumber: 17
+                                    lineNumber: 344,
+                                    columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/components/Animation.jsx",
-                            lineNumber: 325,
-                            columnNumber: 13
+                            lineNumber: 331,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "jsx-150d4a4bc45c3400" + " " + `grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 transition-all duration-1000 delay-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`,
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "jsx-150d4a4bc45c3400" + " " + "group bg-white/10 backdrop-blur-sm rounded-lg p-4 transition-all duration-500 hover:bg-white/20 hover:scale-105 hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-500/20 cursor-default",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "jsx-150d4a4bc45c3400" + " " + "text-purple-400 text-2xl mb-2 group-hover:scale-110 transition-transform duration-300",
+                                            children: "🎮"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/components/Animation.jsx",
+                                            lineNumber: 355,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                            className: "jsx-150d4a4bc45c3400" + " " + "text-white font-semibold group-hover:text-purple-300 transition-colors duration-300",
+                                            children: "Latest Games"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/components/Animation.jsx",
+                                            lineNumber: 356,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "jsx-150d4a4bc45c3400" + " " + "text-white/60 text-sm group-hover:text-white/80 transition-colors duration-300",
+                                            children: "Discover new releases"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/components/Animation.jsx",
+                                            lineNumber: 357,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/components/Animation.jsx",
+                                    lineNumber: 354,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "jsx-150d4a4bc45c3400" + " " + "group bg-white/10 backdrop-blur-sm rounded-lg p-4 transition-all duration-500 hover:bg-white/20 hover:scale-105 hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/20 cursor-default",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "jsx-150d4a4bc45c3400" + " " + "text-blue-400 text-2xl mb-2 group-hover:scale-110 transition-transform duration-300",
+                                            children: "🏆"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/components/Animation.jsx",
+                                            lineNumber: 361,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                            className: "jsx-150d4a4bc45c3400" + " " + "text-white font-semibold group-hover:text-blue-300 transition-colors duration-300",
+                                            children: "Tournaments"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/components/Animation.jsx",
+                                            lineNumber: 362,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "jsx-150d4a4bc45c3400" + " " + "text-white/60 text-sm group-hover:text-white/80 transition-colors duration-300",
+                                            children: "Compete and win"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/components/Animation.jsx",
+                                            lineNumber: 363,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/components/Animation.jsx",
+                                    lineNumber: 360,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "jsx-150d4a4bc45c3400" + " " + "group bg-white/10 backdrop-blur-sm rounded-lg p-4 transition-all duration-500 hover:bg-white/20 hover:scale-105 hover:-translate-y-2 hover:shadow-xl hover:shadow-green-500/20 cursor-default",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "jsx-150d4a4bc45c3400" + " " + "text-green-400 text-2xl mb-2 group-hover:scale-110 transition-transform duration-300",
+                                            children: "👥"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/components/Animation.jsx",
+                                            lineNumber: 367,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                            className: "jsx-150d4a4bc45c3400" + " " + "text-white font-semibold group-hover:text-green-300 transition-colors duration-300",
+                                            children: "Community"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/components/Animation.jsx",
+                                            lineNumber: 368,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "jsx-150d4a4bc45c3400" + " " + "text-white/60 text-sm group-hover:text-white/80 transition-colors duration-300",
+                                            children: "Join fellow gamers"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/components/Animation.jsx",
+                                            lineNumber: 369,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/components/Animation.jsx",
+                                    lineNumber: 366,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/components/Animation.jsx",
+                            lineNumber: 353,
+                            columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/components/Animation.jsx",
                     lineNumber: 303,
-                    columnNumber: 13
+                    columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/components/Animation.jsx",
                 lineNumber: 302,
-                columnNumber: 9
+                columnNumber: 7
             }, this),
             !isLoaded && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "jsx-527abe497075a7be" + " " + "absolute inset-0 bg-black/50 flex items-center justify-center z-20",
+                className: "jsx-150d4a4bc45c3400" + " " + "absolute inset-0 bg-black/50 flex items-center justify-center z-20",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "jsx-527abe497075a7be" + " " + "text-white text-xl",
+                    className: "jsx-150d4a4bc45c3400" + " " + "text-white text-xl animate-pulse",
                     children: "Loading 3D Experience..."
                 }, void 0, false, {
                     fileName: "[project]/app/components/Animation.jsx",
-                    lineNumber: 345,
-                    columnNumber: 13
+                    lineNumber: 378,
+                    columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/components/Animation.jsx",
-                lineNumber: 344,
-                columnNumber: 13
+                lineNumber: 377,
+                columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                id: "527abe497075a7be",
-                children: "@keyframes gradient{0%,to{background-position:0%}50%{background-position:100%}}.animate-gradient.jsx-527abe497075a7be{background-size:200% 200%;animation:3s infinite gradient}.bg-size-200.jsx-527abe497075a7be{background-size:200% 200%}"
+                id: "150d4a4bc45c3400",
+                children: "@keyframes gradient{0%,to{background-position:0%}50%{background-position:100%}}.animate-gradient.jsx-150d4a4bc45c3400{background-size:200% 200%;animation:3s infinite gradient}.bg-size-200.jsx-150d4a4bc45c3400{background-size:200% 200%}"
             }, void 0, false, void 0, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/components/Animation.jsx",
         lineNumber: 297,
-        columnNumber: 9
+        columnNumber: 5
     }, this);
 }
 }}),

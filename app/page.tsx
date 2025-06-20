@@ -1,13 +1,9 @@
 
-import Navbar from './components/Navbar'
-import Animation from './components/Animation'
-
-
+import Animation from './Home/Animation'
 
 export default function Home() {
   return (
     <div>
-      <Navbar/>
       <Animation/>
     </div>
   )

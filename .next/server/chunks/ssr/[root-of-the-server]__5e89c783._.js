@@ -278,12 +278,12 @@ function RootLayout({ children }) {
             }, this)
         }, void 0, false, {
             fileName: "[project]/app/layout.tsx",
-            lineNumber: 8,
+            lineNumber: 9,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/layout.tsx",
-        lineNumber: 7,
+        lineNumber: 8,
         columnNumber: 5
     }, this);
 }

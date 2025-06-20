@@ -1,18 +1,17 @@
-'use client';
-import { AuthProvider } from '@/hooks/useAuth';
+// app/layout.tsx
 import './globals.css'
-import Navbar from './components/Navbar';
+import LayoutWrapper from './components/LayoutWrapper'
+import { AuthProvider } from '@/hooks/useAuth'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
-        <AuthProvider>
-        <Navbar />
-          {children}
+      <body className='bg-gray-900 text-white antialiased'>
+                <AuthProvider>
+          <LayoutWrapper>{children}</LayoutWrapper>
         </AuthProvider>
-        
       </body>
     </html>
-  );
+  )
 }
+

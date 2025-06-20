@@ -202,9 +202,13 @@ module.exports = mod;
 var { g: global, __dirname } = __turbopack_context__;
 {
 __turbopack_context__.s({
+    "AuthService": (()=>AuthService),
     "comparePassword": (()=>comparePassword),
+    "decodeToken": (()=>decodeToken),
     "generateToken": (()=>generateToken),
+    "getUserFromToken": (()=>getUserFromToken),
     "hashPassword": (()=>hashPassword),
+    "isTokenExpired": (()=>isTokenExpired),
     "verifyToken": (()=>verifyToken)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$bcryptjs$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/bcryptjs/index.js [app-route] (ecmascript)");
@@ -257,6 +261,70 @@ function verifyToken(token) {
     } catch (error) {
         console.error('Error verifying JWT token:', error);
         throw new Error('Invalid or expired token');
+    }
+}
+function decodeToken(token) {
+    try {
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        return JSON.parse(jsonPayload);
+    } catch (error) {
+        console.error('Error decoding token:', error);
+        return null;
+    }
+}
+function isTokenExpired(token) {
+    try {
+        const decoded = decodeToken(token);
+        if (!decoded || !decoded.exp) return true;
+        const currentTime = Date.now() / 1000;
+        return decoded.exp < currentTime;
+    } catch (error) {
+        return true;
+    }
+}
+function getUserFromToken(token) {
+    try {
+        const decoded = decodeToken(token);
+        if (!decoded) return null;
+        // Extract user data from token payload
+        return {
+            id: decoded.userId || decoded.id,
+            email: decoded.email,
+            name: decoded.name
+        };
+    } catch (error) {
+        return null;
+    }
+}
+class AuthService {
+    static TOKEN_KEY = 'auth-token';
+    static getToken() {
+        if ("TURBOPACK compile-time truthy", 1) return null;
+        "TURBOPACK unreachable";
+    }
+    static setToken(token) {
+        if ("TURBOPACK compile-time truthy", 1) return;
+        "TURBOPACK unreachable";
+    }
+    static removeToken() {
+        if ("TURBOPACK compile-time truthy", 1) return;
+        "TURBOPACK unreachable";
+    }
+    static getCurrentUser() {
+        const token = this.getToken();
+        if (!token || isTokenExpired(token)) {
+            this.removeToken();
+            return null;
+        }
+        return getUserFromToken(token);
+    }
+    static isAuthenticated() {
+        const token = this.getToken();
+        return !!(token && !isTokenExpired(token));
     }
 }
 }}),
