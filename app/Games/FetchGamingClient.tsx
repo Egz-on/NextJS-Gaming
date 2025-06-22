@@ -18,6 +18,8 @@ export default function GameListClient({
     const [games, setGames] = useState(initialGames);
     const [query, setQuery] = useState("");
 
+    console.log(apiKey)
+
     const LoadMore = async () => {
         if (!next) return;
 
@@ -64,7 +66,6 @@ export default function GameListClient({
                     />
                 </div>
 
-                
                 <InfiniteScroll
                     dataLength={games.length}
                     next={LoadMore}
@@ -128,7 +129,9 @@ export default function GameListClient({
                                         </div>
                                     </div>
 
-                                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 to-blue-500"></div>
+                                    <div className="absolute top-0 left-0 w-full  bg-gradient-to-r from-orange-500 to-blue-500">
+                                        
+                                    </div>
                                 </div>
                             </div>
                         ))}
